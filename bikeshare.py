@@ -13,7 +13,10 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
     print('Would you like to see data for Chicago,New York City or Washington')
-    # get user input for city (chicago, new york city, washington).
+    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+    """
+    Refactor Code delete unnecessary Code in a for Loop (The actual changes made don't matter for this project)
+    """
     i = 1
     while i>=1 :
         city_input = input("Enter city name: ").title()
@@ -44,7 +47,9 @@ def get_filters():
             i -=1
         else : print("Invalid input please try again")
 
-
+    """
+    Refactor Code Including print in input() (The actual changes made don't matter for this project)
+    """
     print('-'*40)
     return city, month, day
 
@@ -79,7 +84,9 @@ def time_stats(df):
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
-
+    """
+    Refactor Code Change string formatting (The actual changes made don't matter for this project)
+    """
     # display the most common month
     most_common_month = df['month'].mode()[0]
     print('Most common month:', most_common_month)
