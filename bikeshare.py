@@ -19,7 +19,7 @@ def get_filters():
     print('Would you like to see data for Chicago,New York City or Washington')
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     """
-    Refactor Code delete unnecessary Code in a for Loop
+    Refactor Code delete unnecessary Code in a for Loop (The actual changes made don't matter for this project)
     """
     i = 1
     while i>=1 :
@@ -51,7 +51,9 @@ def get_filters():
             i -=1
         else : print("Invalid input please try again")
 
-
+    """
+    Refactor Code Including print in input() (The actual changes made don't matter for this project)
+    """
     print('-'*40)
     return city, month, day
 
