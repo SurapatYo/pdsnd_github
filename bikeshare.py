@@ -10,14 +10,10 @@ def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
 
-    Returns:
-        (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
     print('Would you like to see data for Chicago,New York City or Washington')
-    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+    # get user input for city (chicago, new york city, washington).
     i = 1
     while i>=1 :
         city_input = input("Enter city name: ").title()
@@ -57,24 +53,21 @@ def load_data(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
 
-    Args:
-        (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
-    Returns:
-        df - Pandas DataFrame containing city data filtered by month and day
     """
+    # load data from city that user inputted
     df = pd.read_csv(CITY_DATA[city])
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.day_name()
     df['hour'] = df['Start Time'].dt.hour
 
+    # filter data from month
     if month != 'All':
         months = ['January', 'February', 'March', 'April', 'May', 'June']
         month = months.index(month) + 1
         df = df[df['month'] == month]
 
+    # filter data from day of week
     if day != 'All':
         df = df[df['day_of_week'] == day.title()]
 
@@ -178,6 +171,10 @@ def user_stats(df,city):
     print('-'*40)
 
 def view_raw_data(df):
+    """
+    Asks user to show 5 rows of raw data.
+
+    """
     df.drop('routh',axis='columns', inplace=True)
     view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n')
     start_loc = 0
